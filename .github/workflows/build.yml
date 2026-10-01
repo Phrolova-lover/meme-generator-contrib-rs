@@ -71,10 +71,10 @@ jobs:
       - uses: swatinem/rust-cache@v2
 
       - name: Rustup add target
-        run: rustup target add ${{ matrix.platform.target }}
+        run: rustup target add --toolchain 1.93.1 ${{ matrix.platform.target }}
 
       - name: Build target
-        run: cargo build --release --target ${{ matrix.platform.target }}
+        run: cargo +1.93.1 build --release --target ${{ matrix.platform.target }}
 
       - uses: actions/upload-artifact@v6
         with:
